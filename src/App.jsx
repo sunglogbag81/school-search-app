@@ -201,7 +201,8 @@ function App() {
 
   // 네이버 지도 열기
   const openNaverMap = (school) => {
-    const query = encodeURIComponent(`${school.SCHUL_NM} ${school.ORG_RDNMA || ''}`)
+    const region = OFFICE_CODES[school.ATPT_OFCDC_SC_CODE] || ''
+    const query = encodeURIComponent(`${region} ${school.SCHUL_NM}`.trim())
     window.open(`https://map.naver.com/v5/search/${query}`, '_blank', 'noreferrer')
   }
 
